@@ -171,7 +171,9 @@ const data = await loadData(`data/${cleanPath}`);
                     "Оплата далее": parseNumber(getInput(7))
                 });
             });
-            if (abon.length > 0) groups.push({ "Название": title, "Абонементы": abon });
+           if (title || abon.length > 0) {
+  groups.push({ "Название": title || "Новая группа", "Абонементы": abon });
+}
         });
         return groups;
     }

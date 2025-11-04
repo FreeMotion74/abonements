@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!user?.Данные) return;
 
 
-const rawPath = user.Данные || "";
-const cleanPath = rawPath
-  .replace(/^\.?\/*/, "")
-  .replace(/^data\//, "")
-  .replace(/\.json$/i, "");
+    const rawPath = user.Данные || "";
+    const cleanPath = rawPath
+        .replace(/^\.?\/*/, "")
+        .replace(/^data\//, "")
+        .replace(/\.json$/i, "");
 
-const data = await loadData(`data/${cleanPath}`);
+    const data = await loadData(`data/${cleanPath}`);
 
 
 
@@ -49,7 +49,8 @@ const data = await loadData(`data/${cleanPath}`);
               <th></th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+          </tbody>
           <tr class="sum">
             <th colspan="2">Сумма:</th>
             <td></td>
@@ -89,34 +90,34 @@ const data = await loadData(`data/${cleanPath}`);
         });
 
 
-// === Ограничение ввода в числовые поля ===
-document.addEventListener("input", e => {
-  const input = e.target;
-  if (input.tagName === "INPUT" && input.type === "number") {
-    let v = input.value;
+        // === Ограничение ввода в числовые поля ===
+        document.addEventListener("input", e => {
+            const input = e.target;
+            if (input.tagName === "INPUT" && input.type === "number") {
+                let v = input.value;
 
-    // Удаляем всё, кроме цифр
-    v = v.replace(/\D/g, "");
+                // Удаляем всё, кроме цифр
+                v = v.replace(/\D/g, "");
 
-    // Убираем ведущие нули (кроме одного, если нужно пустое поле)
-    v = v.replace(/^0+/, "");
+                // Убираем ведущие нули (кроме одного, если нужно пустое поле)
+                v = v.replace(/^0+/, "");
 
-    // Ограничиваем длину — максимум 4 цифры
-    if (v.length > 4) v = v.slice(0, 4);
+                // Ограничиваем длину — максимум 4 цифры
+                if (v.length > 4) v = v.slice(0, 4);
 
-    // Записываем обратно
-    input.value = v;
-  }
-});
+                // Записываем обратно
+                input.value = v;
+            }
+        });
 
-// === Дополнительно: запрещаем ввод "-" и "e" в number-поле ===
-document.addEventListener("keydown", e => {
-  if (e.target.tagName === "INPUT" && e.target.type === "number") {
-    if (["-", "e", "E", "+", "."].includes(e.key)) {
-      e.preventDefault();
-    }
-  }
-});
+        // === Дополнительно: запрещаем ввод "-" и "e" в number-поле ===
+        document.addEventListener("keydown", e => {
+            if (e.target.tagName === "INPUT" && e.target.type === "number") {
+                if (["-", "e", "E", "+", "."].includes(e.key)) {
+                    e.preventDefault();
+                }
+            }
+        });
 
 
 
@@ -193,47 +194,47 @@ document.addEventListener("keydown", e => {
 
 
 
-// === Подсветка дат (текст + фон) ===
-function updateDateColors() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+        // === Подсветка дат (текст + фон) ===
+        function updateDateColors() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
 
-  document.querySelectorAll('input[type="date"]').forEach(input => {
-    const val = input.value;
-    if (!val) {
-      input.style.color = "";
-      input.style.backgroundColor = "";
-      return;
-    }
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                const val = input.value;
+                if (!val) {
+                    input.style.color = "";
+                    input.style.backgroundColor = "";
+                    return;
+                }
 
-    const date = new Date(val);
-    date.setHours(0, 0, 0, 0);
+                const date = new Date(val);
+                date.setHours(0, 0, 0, 0);
 
-    if (date.getTime() === today.getTime()) {
-      input.style.color = "orange";
-      input.style.backgroundColor = "#fff6cc"; // мягкий жёлтый
-    } else if (date.getTime() < today.getTime()) {
-      input.style.color = "red";
-      input.style.backgroundColor = "#ffe0e0"; // мягкий розовый
-    } else {
-      input.style.color = "green";
-      input.style.backgroundColor = "#e6ffe6"; // мягкий зелёный
-    }
-  });
-}
+                if (date.getTime() === today.getTime()) {
+                    input.style.color = "orange";
+                    input.style.backgroundColor = "#fff6cc"; // мягкий жёлтый
+                } else if (date.getTime() < today.getTime()) {
+                    input.style.color = "red";
+                    input.style.backgroundColor = "#ffe0e0"; // мягкий розовый
+                } else {
+                    input.style.color = "green";
+                    input.style.backgroundColor = "#e6ffe6"; // мягкий зелёный
+                }
+            });
+        }
 
-// === События ===
-document.addEventListener("input", e => {
-  if (e.target.type === "date") updateDateColors();
-});
+        // === События ===
+        document.addEventListener("input", e => {
+            if (e.target.type === "date") updateDateColors();
+        });
 
-document.addEventListener("DOMContentLoaded", updateDateColors);
-document.addEventListener("cardsReady", updateDateColors);
-document.addEventListener("recalcNeeded", updateDateColors);
+        document.addEventListener("DOMContentLoaded", updateDateColors);
+        document.addEventListener("cardsReady", updateDateColors);
+        document.addEventListener("recalcNeeded", updateDateColors);
 
-// === Автоматическая реакция при добавлении новых строк ===
-const dateObserver = new MutationObserver(updateDateColors);
-dateObserver.observe(document.body, { childList: true, subtree: true });
+        // === Автоматическая реакция при добавлении новых строк ===
+        const dateObserver = new MutationObserver(updateDateColors);
+        dateObserver.observe(document.body, { childList: true, subtree: true });
 
 
 
@@ -246,8 +247,93 @@ dateObserver.observe(document.body, { childList: true, subtree: true });
         left.appendChild(card);
         recalc();
         document.addEventListener("recalcNeeded", () => {
-  recalc();
-})
+            recalc();
+        })
     });
     document.dispatchEvent(new Event("cardsReady"));
+
+
+
+
+
+
+    const addGroupBtn = document.getElementById("add-group");
+    if (!addGroupBtn) return;
+
+    addGroupBtn.addEventListener("click", () => {
+        const left = document.querySelector(".left");
+        if (!left) return;
+
+        // создаём новую карточку группы
+        const section = document.createElement("section");
+        section.className = "card";
+        section.innerHTML = `
+      <div class="card-head">
+        <h3 contenteditable="true" placeholder="Новая группа"></h3>
+        <button class="addbtn">＋ Добавить строку</button>
+      </div>
+      <table class="card-table">
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>ФИО</th>
+            <th>Активен</th>
+            <th>Цена</th>
+            <th>Оплачено</th>
+            <th>Осталось</th>
+            <th>Дата текущего</th>
+            <th>Задолженность</th>
+            <th>Дата долга</th>
+            <th>Оплата далее</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="number">1</td>
+            <td class="fio" contenteditable="true"></td>
+            <td><input type="date"></td>
+            <td><input type="number" name="Цена"></td>
+            <td><input type="number" name="Оплачено"></td>
+            <td><input type="number" name="Осталось" readonly></td>
+            <td><input type="date"></td>
+            <td><input type="number"></td>
+            <td><input type="date"></td>
+            <td><input type="number"></td>
+            <td><button class="delbtn">✖</button></td>
+          </tr>
+        </tbody>
+        <tr class="sum">
+          <th colspan="2">Сумма:</th>
+          <td></td>
+          <td>0 ₽</td>
+          <td>0 ₽</td>
+          <td>0 ₽</td>
+          <td></td>
+          <td>0 ₽</td>
+          <td></td>
+          <td>0 ₽</td>
+          <td></td>
+        </tr>
+      </table>
+    `;
+
+        left.appendChild(section);
+
+        // уведомляем систему, чтобы пересчиталась логика
+        document.dispatchEvent(new Event("cardsReady"));
+        document.dispatchEvent(new CustomEvent("recalcNeeded"));
+
+        // вызываем пересчёт сразу (чтобы суммы были актуальны)
+        if (typeof recalcAll === "function") recalcAll();
+
+        // 🔹 автосохранение в Firebase через полсекунды
+        if (typeof saveFullState === "function") {
+            setTimeout(() => saveFullState(), 500);
+        }
+    });
+
+
+
+
 });
