@@ -1,0 +1,680 @@
+/* Header */
+header {
+    background: var(--gradient);
+    display: flex;
+    color: var(--light);
+}
+
+header .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 85px;
+    pointer-events: none;
+    display: block;
+}
+
+header .name {
+    display: flex;
+    margin: 0px 30px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+header .name1 {
+    font-family: "TTNorms-bold";
+    font-size: 26px;
+    white-space: nowrap;
+}
+
+header .name2 {
+    font-size: 15px;
+}
+
+header .user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border-radius: 5vh;
+    padding: 6px 16px 6px 10px;
+}
+
+header .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--purple-dark);
+}
+
+header .avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+header .user-text {
+    display: flex;
+    flex-direction: column;
+    margin-right: 6px;
+}
+
+header .username {
+    color: var(--purple-light);
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 20px;
+}
+
+header .nap {
+    font-size: 16px;
+    color: var(--purple-dark);
+}
+
+header .nap b{
+    color: var(--purple-dark);
+}
+
+header .logout-btn {
+    border: none;
+    background: var(--light);
+    color: var(--purple-dark);
+    padding: 8px 14px;
+    border-radius: 5vh;
+    cursor: pointer;
+    font-size: 15px;
+    border: 1px solid var(--glass);
+}
+
+header .logout-btn:hover {
+    background: var(--purple-light);
+    color: var(--light);
+}
+
+
+
+
+
+
+
+
+/* Main */  
+.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 30px 40px;
+}
+
+.left {
+    flex: 0 0 70%;
+}
+
+.right {
+    flex: 0 0 28%;
+}
+
+
+
+
+/* Левая часть */
+/* Карточка */
+.card {
+    background: #ffffff;
+    border-radius: 5vh;
+    padding: 26px;
+    border: 1px solid var(--glass);
+    box-shadow: 0 6px 24px #0000000f;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Шапка карточки*/
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.card-head h3 {
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    padding: 8px 14px;
+    font-size: 22px;
+    color: var(--purple-light);
+}
+
+.card-head h3 {
+    cursor: text;
+    width: 200px;
+    white-space: nowrap;
+}
+
+.card-head h3[contenteditable]:focus {
+    outline: none;
+}
+    
+.card-head h3:empty::before {
+    content: "Введите название";
+    color: var(--purple-light);
+    font-size: 22px;
+    font-family: "TTNorms-Regular";
+}
+
+.card-head h3:focus::before {
+    content: "";
+}
+
+.addbtn {
+    background: var(--light);
+    color: var(--purple-dark);
+    border: 1px solid var(--glass);
+    padding: 7px 16px;
+    border-radius: 5vh;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+.addbtn:hover {
+    background: var(--purple-light);
+    color: var(--light);
+}
+
+
+
+
+/* таблица */
+.card-table {
+border-collapse: collapse;
+border-radius: 3vh;
+overflow: hidden;
+
+}
+
+/* заголовки */
+.card-table th{
+    background: var(--glass);
+    color: var(--purple-dark);
+    font-size: 15px;
+    padding: 9px 6px;
+    text-align: center;
+}
+
+.card-table tbody tr:hover td { 
+    background: var(--glass);
+}
+
+
+/* Поля таблицы */
+.card-table  td {
+    padding: 8px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--glass);
+    color: var(--purple-dark);
+    transition: background 0.25s ease;
+    font-size: 15px;
+    height: 34px;
+    line-height: 34px;
+}
+
+.fio {
+    cursor: text;
+    min-width: 200px;
+    
+}
+
+.fio[contenteditable]:focus {
+    outline: none;
+}
+    
+.fio:empty::before {
+    content: "Введите имя";
+    color: var(--purple-light);
+}
+
+.fio:focus::before {
+    content: "";
+}
+
+
+/* ячейка для денег */
+input[type="number"] {
+    outline: none;
+    border: 1px solid var(--glass); 
+    border-radius: 5vh;
+    padding: 4px 8px;
+    font-size: 15px;
+    color: var(--purple-dark);
+    text-align: center;
+    width: 100%;
+    height: 34px;
+    line-height: 34px;
+    background: var(--light);
+}
+/* Убрирает стрелочки */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+/*  Пустой */
+input[type="number"]:invalid {
+    opacity: 0;
+}
+/* Наведение */
+input[type="number"]:not(:focus):invalid:hover {
+    opacity: 0.5;
+    border-color: var(--purple-light);
+}
+/* Фокус */
+input[type="number"]:focus {
+    opacity: 1;
+    border-color: var(--purple-light);
+}
+/* Заполненный */
+input[type="number"]:valid {
+    opacity: 1;
+}
+
+
+/* === Заблокированные поля (readonly) === */
+input[type="number"][readonly] {
+    background: var(--light);
+    color: var(--purple-dark);
+    border-color: var(--light);
+    opacity: 0;
+    cursor: not-allowed;
+    transition: all 0.25s ease; /* плавная анимация */
+}
+
+/* === Скрываем, если нет значения === */
+input[type="number"][readonly]:placeholder-shown {
+    opacity: 0;
+    border-color: transparent;
+    cursor: default;
+}
+
+/* === Подсветка при пересчёте === */
+input[type="number"][readonly].highlight {
+    background: var(--purple-light);
+    color: white;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* ячейка дат */
+input[type="date"] {
+    color: var(--purple-dark);
+    font-size: 15px;
+    text-align: center;
+    height: 34px;
+    line-height: 34px;
+    padding: 0 8px;
+    width: 100%;
+    border: none;
+    border-radius: 5vh;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+/* Убираем иконку календаря */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+/* Центровка даты */
+input[type="date"]::-webkit-date-and-time-value,
+input[type="date"]::-webkit-datetime-edit {
+    text-align: center;
+}
+/* Для Firefox */
+input[type="date"]::-moz-focus-inner {
+    border: 0;
+}
+/* Отключаем синее выделение даты при открытии календаря */
+input[type="date"]::-webkit-datetime-edit-year-field:focus,
+input[type="date"]::-webkit-datetime-edit-month-field:focus,
+input[type="date"]::-webkit-datetime-edit-day-field:focus {
+    background: none;
+    color: var(--purple-dark);
+}
+/* Для Safari и Chromium */
+input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    background: none;
+}
+/* Пустой */
+input[type="date"]:invalid {
+    opacity: 0;
+    box-shadow: none;
+}
+/* Наведение */
+input[type="date"]:not(:focus):invalid:hover {
+    opacity: 0.5;
+    color: var(--purple-light);
+}
+/* Фокус */
+input[type="date"]:focus {
+    opacity: 1;
+    color: var(--purple-dark);
+    -webkit-text-fill-color: var(--purple-dark);
+}
+
+/* Заполненный */
+input[type="date"]:valid {
+    opacity: 1;
+}
+
+
+
+/* кнопки добавления и убирания */
+.delbtn, .savebtn {
+    background: transparent;
+    border: none;
+    color: var(--glass);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.delbtn:hover,.savebtn:hover{ 
+    text-decoration: underline; 
+    color: var(--purple-light);
+}
+
+
+/* Строка суммы внизу таблицы */
+.sum th{
+    border-top: 2px solid var(--purple-light);
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 18px;
+    color: var(--purple-light);
+    height: 52px;
+}
+
+.sum td {
+    background: var(--glass);
+    border-top: 2px solid var(--purple-light);
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+    color: var(--purple-light);
+    height: 34px;
+}
+
+    
+
+
+/* Правая часть */
+/* Итоги */
+.results-head {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.results-head h3 {
+    font-size: 28px;
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    color: var(--purple-light);
+}
+
+#today-date {
+    font-size: 18px;
+    color: var(--purple-light);
+    margin-top: 10px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.results-table th {
+    color: var(--purple-dark);
+    padding: 8px 4px;
+    font-weight: normal;
+}
+
+.results-table td {
+    padding: 8px 4px 14px;
+    border-bottom: 1px solid var(--glass);
+    white-space: nowrap;
+    font-size: 18px;
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    color: var(--purple-dark);
+}
+
+
+
+/* Расходы */
+.expenses-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.expenses-head h3 {
+    font-size: 28px;
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    color: var(--purple-light);
+}
+
+.inf {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#save-time {
+    display: flex;
+    font-size: 15px;
+    color: var(--purple-light);
+    margin: 20px 0;
+    justify-content: center;
+}
+
+
+
+.expenses-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.expenses-table th {
+    color: var(--purple-dark);
+    padding: 8px 4px;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 15px;
+}
+
+.expenses-table td {
+    padding: 8px 4px 14px;
+    white-space: nowrap;
+    color: var(--purple-dark);
+    font-size: 15px;
+}
+
+.b {
+    background: var(--glass);
+    border: 2px solid var(--glass);
+}
+
+.b th {
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.b td {
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 18px;
+}
+
+
+/* Подвал */
+footer p{
+    text-align: center;
+    padding: 20px;
+    color: var(--purple-dark);
+    font-size: 15px;
+    border-top: 1px solid var(--glass);
+}
+
+
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #00000070;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 3vh;
+    padding: 30px 40px;
+    text-align: center;
+    box-shadow: 0 6px 24px #00000030;
+    animation: slideUp 0.25s ease;
+    min-width: 300px;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+    color: var(--purple-light);
+    font-family: "TTNorms-bold";
+    font-weight: normal;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: var(--purple-dark);
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.modal-buttons button {
+    padding: 12px 30px;
+    border-radius: 5vh;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+}
+
+#confirmYes {
+    background: var(--light);
+    border: 2px solid var(--glass);
+    color: var(--purple-dark);
+}
+
+#confirmYes:hover {
+    background: var(--purple-light);
+    color: white;
+}
+
+#confirmNo {
+    background: var(--light);
+    border: 2px solid var(--glass);
+    color: var(--purple-dark);
+}
+
+#confirmNo:hover {
+    background: var(--purple-light);
+    color: white;
+}
+
+    .modal.single-button #confirmYes {
+    display: none;
+}
+
+.modal.single-button #confirmNo {
+    background: var(--light);
+    border: 2px solid var(--glass);
+    color: var(--purple-dark);
+}
+
+.modal.single-button #confirmNo:hover {
+    background: var(--purple-light);
+    color: white;
+}
+
+
+
+
+
+
+
+.number {
+  cursor: grab;
+  user-select: none;
+}
+.number:active {
+  cursor: grabbing;
+}
+
+
+/* ✨ Подсветка строки, которую тянут */
+tr.dragging {
+  background-color: var(--glass);
+  opacity: 0.8;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png">
+    <meta name="theme-color" content="#9526c0">
+	<title>FREE MOTION - Вход в систему</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <main>
+        <div class="login">
+            <div class="brand">
+                <img src="img/favicon2.png" alt="логотип">
+                <div class="titles">
+                    <p class="title">FREE MOTION</p>
+                    <p class="subtitle">Абонементы</p>
+                </div>
+            </div>
+            <form>
+                <p>Вход в систему</p>
+                <div class="input">
+                    <input type="text" id="login" required placeholder="">
+                    <label for="login">Логин</label>
+                </div>
+                <div class="input">
+                    <input type="password" id="password" required placeholder="">
+                    <label for="password">Пароль</label>
+                </div>
+                <button type="submit">Войти</button>
+                <p class="error">Неверный логин или пароль</p>
+
+            </form>
+        </div>
+    </main>
+
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

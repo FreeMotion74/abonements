@@ -1,0 +1,132 @@
+body {
+    background: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login {
+    background: var(--glass);
+    border-radius: 5vh;
+    padding: 40px 50px 10px;
+    box-shadow: 0 6px 24px #0000000f;
+    text-align: center;
+    width: 100%;
+    border: 1px solid var(--glass);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+img {
+    width: 100px;
+    
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.title {
+    font-family: "TTNorms-Bold";
+    color: var(--purple-light);
+    font-size: 26px;
+    white-space: nowrap;
+}
+
+.subtitle {
+    color: var(--purple-light);
+    font-size: 15px;
+}
+
+form p{
+    color: var(--purple-light);
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 5vh;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--purple-light);
+    text-align: center;
+    background: var(--light);
+    outline: none;
+   
+}
+
+label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: var(--purple-light);
+    pointer-events: none;
+    transition: 0.3s ease;
+    background: transparent;
+}
+
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 18px;
+    transform: none;
+    font-size: 12px;
+    color: var(--purple-light);
+    background: var(--light);
+    padding: 0 5px;
+    border-radius: 5vh;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px 0;
+    background: var(--gradient);
+    color: var(--light);
+    font-size: 16px;
+    border: none;
+    border-radius: 5vh;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+button:hover {
+    background: var(--purple-light);
+}
+
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  text-align: center;
+  color: var(--purple-light);
+  font-size: 14px;
+  margin-top: 6px;
+  opacity: 0;
+}
+
+.error.show {
+  opacity: 1;
+}
