@@ -1,32 +1,53 @@
 @font-face {
-    font-family: "TTNorms-Regular";
-    src: url(/font/TTNorms-Regular.woff2);
+    font-family: "TTNorms";
+    src: url("/font/TTNorms-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "TTNorms-Bold";
-    src: url(/font/TTNorms-Bold.woff2);
+    font-family: "TTNorms";
+    src: url("/font/TTNorms-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
+@font-face {
+    font-family: "TTNorms";
+    src: url("/font/TTNorms-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 :root {
+    --white: #ffffff;
     --glass: #f2f0fa;
     --light: #f7fcfc;
     --purple-light: #9526c0;
     --purple-dark: #5a205a;
-    --gradient: linear-gradient(10deg,#5a205a 0%, #9526c0 100%);
+    --gradient: linear-gradient(10deg, #5a205a 0%, #9526c0 100%);
+    --shadow: 0 6px 24px #0000000f;
+    --border: 1px solid var(--glass);
+    --text18: 15px;
+    --text18: 18px;
+    --text22: 22px;
+    --text26: 26px;
 }
 
-*{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "TTNorms-Regular";
+    font-family: "TTNorms", sans-serif;
+    font-size: 15px;
     color: var(--light);
     text-decoration: none;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {

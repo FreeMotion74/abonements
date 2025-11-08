@@ -10,10 +10,10 @@ body {
     background: var(--glass);
     border-radius: 5vh;
     padding: 40px 50px 10px;
-    box-shadow: 0 6px 24px #0000000f;
+    box-shadow: var(--shadow);
     text-align: center;
     width: 100%;
-    border: 1px solid var(--glass);
+    border: var(--border);
 }
 
 .brand {
@@ -26,7 +26,7 @@ body {
 
 img {
     width: 100px;
-    
+
 }
 
 .titles {
@@ -36,25 +36,24 @@ img {
 }
 
 .title {
-    font-family: "TTNorms-Bold";
+    font-weight: 700;
     color: var(--purple-light);
-    font-size: 26px;
+    font-size: var(--text26);
     white-space: nowrap;
 }
 
 .subtitle {
     color: var(--purple-light);
-    font-size: 15px;
 }
 
-form p{
+form h1 {
     color: var(--purple-light);
     padding-bottom: 15px;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 500;
+    font-size: var(--text18);
 }
 
-.input{
+.input {
     position: relative;
     margin-bottom: 20px;
 }
@@ -64,13 +63,21 @@ input {
     padding: 12px 14px;
     border: none;
     border-radius: 5vh;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: var(--text18);
+    font-weight: 500;
     color: var(--purple-light);
     text-align: center;
     background: var(--light);
+}
+
+@media (hover: hover) {
+    input:hover {
+        outline: 1px solid var(--purple-light);
+    }
+}
+
+input:focus {
     outline: none;
-   
 }
 
 label {
@@ -78,19 +85,18 @@ label {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 15px;
     color: var(--purple-light);
     pointer-events: none;
     transition: 0.3s ease;
     background: transparent;
 }
 
-input:focus + label,
-input:not(:placeholder-shown) + label {
+input:focus+label,
+input:not(:placeholder-shown)+label {
     top: -8px;
     left: 18px;
     transform: none;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--purple-light);
     background: var(--light);
     padding: 0 5px;
@@ -100,33 +106,49 @@ input:not(:placeholder-shown) + label {
 
 button {
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0;
     background: var(--gradient);
     color: var(--light);
-    font-size: 16px;
     border: none;
     border-radius: 5vh;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    /* font-size: var(--text18); */
 }
 
-button:hover {
-    background: var(--purple-light);
+@media (hover: hover) {
+    button:hover {
+        background: var(--purple-light);
+    }
 }
-
 
 .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 22px;
-  text-align: center;
-  color: var(--purple-light);
-  font-size: 14px;
-  margin-top: 6px;
-  opacity: 0;
+    color: var(--purple-light);
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .error.show {
-  opacity: 1;
+    opacity: 1;
+}
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+    body {
+        background: var(--glass);
+        min-height: 80vh;
+    }
+
+    .login {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+
 }
