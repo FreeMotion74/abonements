@@ -1085,7 +1085,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 input[type="number"]:invalid {
-    opacity: 0;
+    opacity: 1;
 }
 
 input[type="number"]:not(:focus):invalid:hover {
@@ -1172,7 +1172,7 @@ input[type="date"]::-webkit-datetime-edit-fields-wrapper {
 }
 
 input[type="date"]:invalid {
-    opacity: 0;
+    opacity: 1;
     box-shadow: none;
 }
 
